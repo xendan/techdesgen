@@ -1,0 +1,27 @@
+<idea-plugin version="2">
+  <name>TechDesGen</name>
+  <description>scan changes and generate tech design doc</description>
+  <version>1.0</version>
+  <vendor>xendan</vendor>
+
+  <!-- please see http://confluence.jetbrains.net/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="107.105"/>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+      <component>
+          <implementation-class>org.techdesgen.ProjectSettingsComponent</implementation-class>
+      </component>
+  </project-components>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+</idea-plugin>
