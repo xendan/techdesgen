@@ -11,21 +11,25 @@ import javax.swing.*;
  */
 public class DesgenProjectSettingsForm {
     private JPanel rootPanel;
-    private JComboBox comboBox1;
+    private JTextField siteTextField;
+    private JTextField userTextField;
+    private JComboBox projectsComboBox;
+    private JButton refreshProjectsButton;
+    private JPasswordField passwordField;
 
     public JPanel getRootPanel() {
         return rootPanel;
     }
 
     public boolean isModified(DesgenProjectSettings settings) {
-        return !settings.getJiraProject().equals(comboBox1.getSelectedItem());
+        return !settings.getJiraProject().equals(projectsComboBox.getSelectedItem());
     }
 
     public void getData(DesgenProjectSettings settings) {
-        settings.setJiraProject(comboBox1.getSelectedItem().toString());
+        settings.setJiraProject(projectsComboBox.getSelectedItem().toString());
     }
 
     public void setData(DesgenProjectSettings settings) {
-        comboBox1.setSelectedItem(settings.getJiraProject());
+        projectsComboBox.setSelectedItem(settings.getJiraProject());
     }
 }
