@@ -15,21 +15,22 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.cxf</groupId>
-                <artifactId>cxf-codegen-plugin</artifactId>
-                <version>2.2.3</version>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>axistools-maven-plugin</artifactId>
+                <version>1.4</version>
+
+                <configuration>
+                    <sourceDirectory>${basedir}/</sourceDirectory>
+                    <wsdlFiles>
+                        <file>jirasoapservicev2.wsdl</file>
+                    </wsdlFiles>
+                    <packageSpace>com.company.wsdl</packageSpace>
+                    <testCases>true</testCases>
+                    <serverSide>true</serverSide>
+                    <subPackageByFileName>true</subPackageByFileName>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>generate-sources</id>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <sourceRoot>${project.build.directory}/generated/cxf</sourceRoot>
-                            <wsdlOptions>
-                                <wsdlOption>
-                                    <wsdl>${basedir}/jirasoapservice-v2.wsdl</wsdl>
-                                </wsdlOption>
-                            </wsdlOptions>
-                        </configuration>
                         <goals>
                             <goal>wsdl2java</goal>
                         </goals>

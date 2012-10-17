@@ -2,6 +2,9 @@ package org.techdesgen;
 
 import javax.swing.*;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 /**
  * Created with IntelliJ IDEA.
  * User: kcyxa
@@ -16,6 +19,20 @@ public class DesgenProjectSettingsForm {
     private JComboBox projectsComboBox;
     private JButton refreshProjectsButton;
     private JPasswordField passwordField;
+    private JButton button1;
+
+    public DesgenProjectSettingsForm() {
+        refreshProjectsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                refreshProjects();
+            }
+        });
+    }
+
+    private void refreshProjects() {
+        projectsComboBox.addItem("Super project");
+    }
 
     public JPanel getRootPanel() {
         return rootPanel;
