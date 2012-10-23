@@ -4,13 +4,20 @@ import javax.swing.*;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import com.atlassian.jira.rest.client.NullProgressMonitor;
+import com.atlassian.jira.rest.client.ProjectRestClient;
+import com.atlassian.jira.rest.client.auth.BasicHttpAuthenticationHandler;
+import com.atlassian.jira.rest.client.domain.BasicProject;
+import com.atlassian.jira.rest.client.internal.jersey.JerseyProjectRestClient;
+import com.sun.jersey.client.apache.ApacheHttpClient;
 
 /**
- * Created with IntelliJ IDEA.
  * User: kcyxa
  * Date: 10/14/12
  * Time: 11:44 PM
- * To change this template use File | Settings | File Templates.
  */
 public class DesgenProjectSettingsForm {
     private JPanel rootPanel;
@@ -31,7 +38,20 @@ public class DesgenProjectSettingsForm {
     }
 
     private void refreshProjects() {
-        projectsComboBox.addItem("Super project");
+        URI jiraServerUri = null;
+        try {
+            jiraServerUri = new URI("http://" + siteTextField.getText());
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            return;
+        }
+        //BasicHttpAuthenticationHandler authentication = new BasicHttpAuthenticationHandler(userTextField.getText(), new String(passwordField.getPassword()));
+        ProjectRestClient client = new JerseyProjectRestClient(jiraServerUri, new ApacheHttpClient());
+        NullProgressMonitor pm = new NullProgressMonitor();
+        for (BasicProject project: client.getAllProjects(pm) ) {
+            projectsComboBox.addItem(project.getName());
+        }
+
     }
 
     public JPanel getRootPanel() {

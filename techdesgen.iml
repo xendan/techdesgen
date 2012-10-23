@@ -9,14 +9,18 @@
     </content>
     <orderEntry type="jdk" jdkName="IDEA IC-117.798" jdkType="IDEA JDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="activation-1.1" level="project" />
-    <orderEntry type="library" name="axis-1.4" level="project" />
-    <orderEntry type="library" name="axis2-saaj-1.1" level="project" />
-    <orderEntry type="library" name="commons-discovery-0.2" level="project" />
-    <orderEntry type="library" name="commons-logging-1.1" level="project" />
-    <orderEntry type="library" name="jaxrpc-api-1.1" level="project" />
-    <orderEntry type="library" name="mail-1.4" level="project" />
-    <orderEntry type="library" name="wsdl4j-1.4" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/src/jira-rest-java-client-0.5-sources.jar!/" />
+        </SOURCES>
+        <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>
 
